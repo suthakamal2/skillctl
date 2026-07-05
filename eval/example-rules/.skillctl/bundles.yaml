@@ -1,0 +1,14 @@
+# Example bundles: each groups related rules; deps resolve transitively.
+
+deploy: [safe-deploy, docker, ci-cd, rollback]
+deploy-k8s: [safe-deploy, kubernetes, ci-cd, rollback]
+backend-api: [api-design, rest-conventions, authentication, authorization]
+data-layer: [database-migrations, sql-optimization, database-indexing, connection-pooling]
+security: [secrets-management, authentication, authorization, password-hashing, input-validation]
+incident: [incident-response, rollback, observability, alerting]
+frontend: [component-design, frontend-state, accessibility, i18n]
+async-processing: [queue-processing, background-jobs, webhooks, cron-jobs]
+observability: [logging, monitoring, observability, alerting]
+review-ready: [code-review, testing-strategy, git-workflow]
+api-evolution: [api-design, api-versioning, rest-conventions]
+data-governance: [data-retention, backups, secrets-management]

@@ -1,0 +1,1022 @@
+schema_version: 1
+generated_at: '2026-06-23T02:08:27+00:00'
+total_rules: 64
+tier_totals:
+  tier_1: 6
+  tier_2: 48
+  tier_3: 10
+token_totals:
+  tier_1: 778
+  tier_2: 7374
+  tier_3: 1505
+rules:
+- id: accessibility
+  title: Accessibility
+  path: rules/accessibility.md
+  tier: 2
+  triggers:
+  - accessibility
+  - a11y
+  - aria
+  - screen reader
+  deps: []
+  summary: Semantic HTML first, keyboard navigable, labelled controls, sufficient
+    contrast.
+  bytes: 635
+  tokens_approx: 158
+  checksum: sha256:0f1f1d12fb36a147
+  status: active
+- id: alerting
+  title: Alerting
+  path: rules/alerting.md
+  tier: 2
+  triggers:
+  - alert
+  - alerting
+  - pager
+  - on-call
+  deps:
+  - monitoring
+  summary: Alert on user-facing symptoms; every alert actionable; tune out noise.
+  bytes: 591
+  tokens_approx: 147
+  checksum: sha256:1f0bca564d9fd49a
+  status: active
+- id: api-design
+  title: Api Design
+  path: rules/api-design.md
+  tier: 2
+  triggers:
+  - api design
+  - endpoint
+  - rest
+  - api contract
+  deps:
+  - rest-conventions
+  summary: Design the contract first; version it; keep responses consistent and typed.
+  bytes: 636
+  tokens_approx: 159
+  checksum: sha256:32606cb8ac5df331
+  status: active
+- id: api-versioning
+  title: Api Versioning
+  path: rules/api-versioning.md
+  tier: 2
+  triggers:
+  - versioning
+  - breaking change
+  - deprecation
+  deps:
+  - api-design
+  summary: Version on breaking change; deprecate with a window; communicate the sunset.
+  bytes: 645
+  tokens_approx: 161
+  checksum: sha256:02167354d322477b
+  status: active
+- id: architecture-overview
+  title: Architecture Overview
+  path: rules/architecture-overview.md
+  tier: 3
+  triggers:
+  - architecture
+  - system design
+  - high level design
+  deps: []
+  summary: 'Reference: services, boundaries, and the data flow between them.'
+  bytes: 644
+  tokens_approx: 161
+  checksum: sha256:b8911126de658fe9
+  status: active
+- id: ask-before-assuming
+  title: Ask Before Assuming
+  path: rules/ask-before-assuming.md
+  tier: 1
+  triggers: []
+  deps: []
+  summary: Surface unknowns and tradeoffs before implementing; don't guess silently.
+  bytes: 535
+  tokens_approx: 133
+  checksum: sha256:8f6caeaae0372a9e
+  status: active
+- id: authentication
+  title: Authentication
+  path: rules/authentication.md
+  tier: 2
+  triggers:
+  - authentication
+  - login
+  - auth
+  - session
+  deps:
+  - jwt
+  summary: Standard flows only; secure session handling; MFA where it matters.
+  bytes: 603
+  tokens_approx: 150
+  checksum: sha256:be8e36e09057d646
+  status: active
+- id: authorization
+  title: Authorization
+  path: rules/authorization.md
+  tier: 2
+  triggers:
+  - authorization
+  - permission
+  - rbac
+  - access control
+  deps: []
+  summary: Deny by default; check on every request; scope tokens to least privilege.
+  bytes: 628
+  tokens_approx: 157
+  checksum: sha256:cce34511758651a5
+  status: active
+- id: background-jobs
+  title: Background Jobs
+  path: rules/background-jobs.md
+  tier: 2
+  triggers:
+  - background job
+  - worker
+  - async task
+  - job queue
+  deps:
+  - queue-processing
+  summary: Idempotent jobs, bounded retries, dead-letter on repeated failure.
+  bytes: 634
+  tokens_approx: 158
+  checksum: sha256:8c5f1aa72971da6e
+  status: active
+- id: backups
+  title: Backups
+  path: rules/backups.md
+  tier: 2
+  triggers:
+  - backup
+  - restore
+  - snapshot
+  - disaster recovery
+  deps: []
+  summary: Automate backups, test restores, store off-host, encrypt at rest.
+  bytes: 580
+  tokens_approx: 145
+  checksum: sha256:f9f077c893ee907b
+  status: active
+- id: caching
+  title: Caching
+  path: rules/caching.md
+  tier: 2
+  triggers:
+  - cache
+  - caching
+  - ttl
+  - invalidation
+  deps: []
+  summary: Cache the expensive and stable; explicit TTL; name an invalidation strategy.
+  bytes: 591
+  tokens_approx: 147
+  checksum: sha256:042aebe82a42ab38
+  status: active
+- id: ci-cd
+  title: Ci Cd
+  path: rules/ci-cd.md
+  tier: 2
+  triggers:
+  - pipeline
+  - continuous integration
+  - github actions
+  - build pipeline
+  deps: []
+  summary: Fast feedback first; cache deps; fail the pipeline on lint, type, and test.
+  bytes: 644
+  tokens_approx: 161
+  checksum: sha256:18e64cfc431d0a3c
+  status: active
+- id: code-review
+  title: Code Review
+  path: rules/code-review.md
+  tier: 2
+  triggers:
+  - code review
+  - review
+  - pr review
+  - approve
+  deps: []
+  summary: Review for correctness and clarity; a different person than the author;
+    no rubber-stamps.
+  bytes: 654
+  tokens_approx: 163
+  checksum: sha256:26b67ac5fab50180
+  status: active
+- id: code-style
+  title: Code Style
+  path: rules/code-style.md
+  tier: 1
+  triggers: []
+  deps: []
+  summary: 'House code style: formatter is authority, no bikeshedding in review.'
+  bytes: 493
+  tokens_approx: 123
+  checksum: sha256:a8df6c45a2918d23
+  status: active
+- id: commit-conventions
+  title: Commit Conventions
+  path: rules/commit-conventions.md
+  tier: 1
+  triggers: []
+  deps: []
+  summary: Conventional Commits; one logical change per commit; imperative subject.
+  bytes: 529
+  tokens_approx: 132
+  checksum: sha256:e5e376a6fde90a2e
+  status: active
+- id: component-design
+  title: Component Design
+  path: rules/component-design.md
+  tier: 2
+  triggers:
+  - component
+  - react
+  - ui component
+  - props
+  deps: []
+  summary: Small, composable, single-responsibility components; lift state deliberately.
+  bytes: 629
+  tokens_approx: 157
+  checksum: sha256:84035e7b621e7fdb
+  status: active
+- id: connection-pooling
+  title: Connection Pooling
+  path: rules/connection-pooling.md
+  tier: 2
+  triggers:
+  - connection pool
+  - pool
+  - max connections
+  deps: []
+  summary: Bound the pool; set timeouts; one pool per service; watch for leaks.
+  bytes: 610
+  tokens_approx: 152
+  checksum: sha256:fdb9f9a26fa3a6f7
+  status: active
+- id: cors
+  title: Cors
+  path: rules/cors.md
+  tier: 2
+  triggers:
+  - cors
+  - cross-origin
+  - preflight
+  deps: []
+  summary: Allow-list origins; never reflect arbitrary Origin; restrict methods/headers.
+  bytes: 577
+  tokens_approx: 144
+  checksum: sha256:03cdbdf023122fb4
+  status: active
+- id: cron-jobs
+  title: Cron Jobs
+  path: rules/cron-jobs.md
+  tier: 2
+  triggers:
+  - cron
+  - scheduled task
+  - scheduler
+  deps:
+  - background-jobs
+  summary: Idempotent + overlap-safe; alert on missed runs; record last success.
+  bytes: 596
+  tokens_approx: 149
+  checksum: sha256:26cc1110517902b8
+  status: active
+- id: data-model-reference
+  title: Data Model Reference
+  path: rules/data-model-reference.md
+  tier: 3
+  triggers:
+  - data model
+  - entity
+  - er diagram
+  deps: []
+  summary: 'Reference: canonical entities, relationships, and ownership.'
+  bytes: 597
+  tokens_approx: 149
+  checksum: sha256:26ffdc8280bb79af
+  status: active
+- id: data-retention
+  title: Data Retention
+  path: rules/data-retention.md
+  tier: 2
+  triggers:
+  - retention
+  - purge
+  - archive
+  - gdpr
+  - data deletion
+  deps: []
+  summary: Define retention per data class; soft-delete then purge; honour erasure
+    requests.
+  bytes: 653
+  tokens_approx: 163
+  checksum: sha256:f3c51eee6ec9594e
+  status: active
+- id: database-indexing
+  title: Database Indexing
+  path: rules/database-indexing.md
+  tier: 2
+  triggers:
+  - index
+  - indexing
+  - composite index
+  deps: []
+  summary: Index for the query, not the table; concurrent creation in prod; drop unused.
+  bytes: 622
+  tokens_approx: 155
+  checksum: sha256:857e8daf2a5f81d4
+  status: active
+- id: database-migrations
+  title: Database Migrations
+  path: rules/database-migrations.md
+  tier: 2
+  triggers:
+  - migration
+  - schema
+  - alter table
+  - ddl
+  deps:
+  - rollback
+  summary: Additive + backward-compatible first; expand/contract; never destructive
+    in one step.
+  bytes: 675
+  tokens_approx: 168
+  checksum: sha256:a24c9f9088ace59b
+  status: active
+- id: dependency-audit
+  title: Dependency Audit
+  path: rules/dependency-audit.md
+  tier: 2
+  triggers:
+  - dependency
+  - vulnerability
+  - cve
+  - audit
+  - supply chain
+  deps: []
+  summary: Pin and lock deps; scan for CVEs in CI; review transitive additions.
+  bytes: 630
+  tokens_approx: 157
+  checksum: sha256:4bafe3c814bce2b6
+  status: active
+- id: dependency-policy
+  title: Dependency Policy
+  path: rules/dependency-policy.md
+  tier: 3
+  triggers:
+  - dependency policy
+  - adding a library
+  - licensing
+  deps: []
+  summary: 'Reference: criteria and approval for adding third-party dependencies.'
+  bytes: 647
+  tokens_approx: 161
+  checksum: sha256:72baf019255ecc1d
+  status: active
+- id: docker
+  title: Docker
+  path: rules/docker.md
+  tier: 2
+  triggers:
+  - docker
+  - container
+  - image
+  - dockerfile
+  deps: []
+  summary: Pin base images, multi-stage builds, non-root user, minimal layers.
+  bytes: 567
+  tokens_approx: 141
+  checksum: sha256:84957c2b42ba4eaa
+  status: active
+- id: error-handling
+  title: Error Handling
+  path: rules/error-handling.md
+  tier: 2
+  triggers:
+  - error handling
+  - exception
+  - retry
+  - timeout
+  deps: []
+  summary: Fail loud at boundaries, retry transient with backoff, never swallow errors.
+  bytes: 628
+  tokens_approx: 157
+  checksum: sha256:d9a87693c0fc3d68
+  status: active
+- id: feature-flags
+  title: Feature Flags
+  path: rules/feature-flags.md
+  tier: 2
+  triggers:
+  - feature flag
+  - flag
+  - toggle
+  - gradual rollout
+  deps: []
+  summary: Gate risky changes behind a flag; default off; clean up stale flags.
+  bytes: 605
+  tokens_approx: 151
+  checksum: sha256:39639d2b7c851030
+  status: active
+- id: frontend-state
+  title: Frontend State
+  path: rules/frontend-state.md
+  tier: 2
+  triggers:
+  - state management
+  - redux
+  - store
+  - client state
+  deps: []
+  summary: Keep server state in a query cache; minimal global client state.
+  bytes: 598
+  tokens_approx: 149
+  checksum: sha256:9d32bd5537294c9d
+  status: active
+- id: git-workflow
+  title: Git Workflow
+  path: rules/git-workflow.md
+  tier: 2
+  triggers:
+  - branch
+  - merge
+  - rebase
+  - pull request
+  deps:
+  - commit-conventions
+  summary: Short-lived branches, rebase to keep history linear, small reviewable PRs.
+  bytes: 631
+  tokens_approx: 157
+  checksum: sha256:5366065034f5e277
+  status: active
+- id: glossary
+  title: Glossary
+  path: rules/glossary.md
+  tier: 3
+  triggers:
+  - glossary
+  - terminology
+  - domain terms
+  deps: []
+  summary: 'Reference: domain terms and their precise meanings.'
+  bytes: 544
+  tokens_approx: 136
+  checksum: sha256:a80ff9893cba416c
+  status: active
+- id: graphql
+  title: Graphql
+  path: rules/graphql.md
+  tier: 2
+  triggers:
+  - graphql
+  - resolver
+  - schema stitching
+  deps: []
+  summary: Guard against deep/expensive queries; dataloader for N+1; persisted queries.
+  bytes: 595
+  tokens_approx: 148
+  checksum: sha256:b2dde5399b6a4839
+  status: active
+- id: i18n
+  title: I18N
+  path: rules/i18n.md
+  tier: 2
+  triggers:
+  - i18n
+  - localization
+  - translation
+  - locale
+  deps: []
+  summary: Externalise strings, format dates/numbers per locale, no string concatenation.
+  bytes: 600
+  tokens_approx: 150
+  checksum: sha256:f94ea513349054e7
+  status: active
+- id: incident-response
+  title: Incident Response
+  path: rules/incident-response.md
+  tier: 2
+  triggers:
+  - incident
+  - outage
+  - sev1
+  - postmortem
+  deps:
+  - rollback
+  - alerting
+  summary: Declare early, assign a lead, communicate, mitigate first, blameless postmortem.
+  bytes: 662
+  tokens_approx: 165
+  checksum: sha256:103e3543bc9b7861
+  status: active
+- id: infra-as-code
+  title: Infra As Code
+  path: rules/infra-as-code.md
+  tier: 2
+  triggers:
+  - terraform
+  - infrastructure
+  - iac
+  - provisioning
+  deps: []
+  summary: All infra in code, planned before apply, state locked and remote.
+  bytes: 598
+  tokens_approx: 149
+  checksum: sha256:5a0f57f44ccfb9ba
+  status: active
+- id: input-validation
+  title: Input Validation
+  path: rules/input-validation.md
+  tier: 2
+  triggers:
+  - validation
+  - sanitize
+  - injection
+  - xss
+  deps: []
+  summary: Validate at the boundary, parameterize queries, encode on output.
+  bytes: 591
+  tokens_approx: 147
+  checksum: sha256:b94c34cd9d86e23e
+  status: active
+- id: jwt
+  title: Jwt
+  path: rules/jwt.md
+  tier: 2
+  triggers:
+  - jwt
+  - token
+  - bearer
+  - claims
+  deps: []
+  summary: Short-lived access tokens, verify signature + audience + expiry, rotate
+    keys.
+  bytes: 568
+  tokens_approx: 142
+  checksum: sha256:9c164fcfa7dda5a8
+  status: active
+- id: kubernetes
+  title: Kubernetes
+  path: rules/kubernetes.md
+  tier: 2
+  triggers:
+  - kubernetes
+  - k8s
+  - pod
+  - helm
+  - kubectl
+  deps:
+  - docker
+  summary: Set resource requests/limits, liveness/readiness probes, no :latest tags.
+  bytes: 610
+  tokens_approx: 152
+  checksum: sha256:32fc3de934b9d61f
+  status: active
+- id: logging
+  title: Logging
+  path: rules/logging.md
+  tier: 2
+  triggers:
+  - logging
+  - log
+  - structured logs
+  deps: []
+  summary: Structured JSON logs, correlation IDs, no PII, levels used consistently.
+  bytes: 571
+  tokens_approx: 142
+  checksum: sha256:17af3cc824365ff5
+  status: active
+- id: monitoring
+  title: Monitoring
+  path: rules/monitoring.md
+  tier: 2
+  triggers:
+  - monitoring
+  - metrics
+  - dashboard
+  - prometheus
+  deps: []
+  summary: RED/USE metrics, dashboards per service, alert on symptoms not causes.
+  bytes: 600
+  tokens_approx: 150
+  checksum: sha256:36d5b932f2d63f0f
+  status: active
+- id: observability
+  title: Observability
+  path: rules/observability.md
+  tier: 2
+  triggers:
+  - observability
+  - tracing
+  - span
+  - opentelemetry
+  deps:
+  - logging
+  - monitoring
+  summary: Traces + metrics + logs correlated; instrument boundaries; sample sanely.
+  bytes: 648
+  tokens_approx: 162
+  checksum: sha256:0d9d2ab5e260fbb0
+  status: active
+- id: onboarding
+  title: Onboarding
+  path: rules/onboarding.md
+  tier: 3
+  triggers:
+  - onboarding
+  - getting started
+  - new engineer
+  deps: []
+  summary: 'Reference: local setup, repo map, and first-week checklist.'
+  bytes: 586
+  tokens_approx: 146
+  checksum: sha256:d16517d9026a8e58
+  status: active
+- id: pagination
+  title: Pagination
+  path: rules/pagination.md
+  tier: 2
+  triggers:
+  - pagination
+  - paginate
+  - cursor
+  - page size
+  deps: []
+  summary: Cursor-based for large sets; cap page size; stable sort key.
+  bytes: 564
+  tokens_approx: 141
+  checksum: sha256:bfb3ab3cff2ca23f
+  status: active
+- id: password-hashing
+  title: Password Hashing
+  path: rules/password-hashing.md
+  tier: 2
+  triggers:
+  - password
+  - hash
+  - bcrypt
+  - argon2
+  deps: []
+  summary: Argon2/bcrypt with per-user salt; never roll your own; rehash on cost bump.
+  bytes: 609
+  tokens_approx: 152
+  checksum: sha256:ce0caaaeb243f984
+  status: active
+- id: performance-web
+  title: Performance Web
+  path: rules/performance-web.md
+  tier: 2
+  triggers:
+  - web performance
+  - lighthouse
+  - bundle size
+  - lazy load
+  deps:
+  - caching
+  summary: Budget the bundle, lazy-load routes, measure Core Web Vitals.
+  bytes: 622
+  tokens_approx: 155
+  checksum: sha256:35dfd4596aa72648
+  status: active
+- id: postmortem-template
+  title: Postmortem Template
+  path: rules/postmortem-template.md
+  tier: 3
+  triggers:
+  - postmortem
+  - retro template
+  - rca
+  deps: []
+  summary: "Reference: blameless postmortem structure \u2014 timeline, impact, actions."
+  bytes: 632
+  tokens_approx: 158
+  checksum: sha256:b1655f2ce7af8b16
+  status: active
+- id: queue-processing
+  title: Queue Processing
+  path: rules/queue-processing.md
+  tier: 2
+  triggers:
+  - queue
+  - message queue
+  - consumer
+  - kafka
+  - sqs
+  deps: []
+  summary: At-least-once by default; idempotent consumers; monitor lag and DLQ depth.
+  bytes: 630
+  tokens_approx: 157
+  checksum: sha256:4a013ba4331c40ed
+  status: active
+- id: rate-limiting
+  title: Rate Limiting
+  path: rules/rate-limiting.md
+  tier: 2
+  triggers:
+  - rate limit
+  - throttle
+  - quota
+  - '429'
+  deps: []
+  summary: Per-principal limits; return 429 + Retry-After; token bucket over fixed
+    window.
+  bytes: 616
+  tokens_approx: 154
+  checksum: sha256:4d6c03f4dff290b7
+  status: active
+- id: refactoring
+  title: Refactoring
+  path: rules/refactoring.md
+  tier: 2
+  triggers:
+  - refactor
+  - cleanup
+  - tech debt
+  deps:
+  - testing-strategy
+  summary: Green tests before and after; one refactor per commit; no behaviour change.
+  bytes: 615
+  tokens_approx: 153
+  checksum: sha256:f9a91e5b5deadfaf
+  status: active
+- id: rest-conventions
+  title: Rest Conventions
+  path: rules/rest-conventions.md
+  tier: 2
+  triggers:
+  - rest
+  - http status
+  - resource
+  - verb
+  deps: []
+  summary: Nouns for resources, correct verbs and status codes, idempotent PUT/DELETE.
+  bytes: 615
+  tokens_approx: 153
+  checksum: sha256:2fc6058e0fce3aec
+  status: active
+- id: rollback
+  title: Rollback
+  path: rules/rollback.md
+  tier: 2
+  triggers:
+  - rollback
+  - revert
+  - roll back
+  - hotfix
+  deps: []
+  summary: Prefer rollback over forward-fix under incident; keep the last good artifact.
+  bytes: 601
+  tokens_approx: 150
+  checksum: sha256:8801939f367b4202
+  status: active
+- id: runbook-deploy
+  title: Runbook Deploy
+  path: rules/runbook-deploy.md
+  tier: 3
+  triggers:
+  - deploy runbook
+  - release checklist
+  deps: []
+  summary: 'Reference: step-by-step production deploy and verification checklist.'
+  bytes: 612
+  tokens_approx: 153
+  checksum: sha256:94b6d4c230f76325
+  status: active
+- id: runbook-incident
+  title: Runbook Incident
+  path: rules/runbook-incident.md
+  tier: 3
+  triggers:
+  - incident runbook
+  - outage playbook
+  deps: []
+  summary: 'Reference: severity definitions, escalation paths, and comms templates.'
+  bytes: 624
+  tokens_approx: 156
+  checksum: sha256:77d9af64df3f12ba
+  status: active
+- id: safe-deploy
+  title: Safe Deploy
+  path: rules/safe-deploy.md
+  tier: 2
+  triggers:
+  - deploy
+  - ship
+  - release
+  - rollout
+  - production
+  - staging
+  deps:
+  - docker
+  - ci-cd
+  - rollback
+  summary: Blue/green or canary; run the suite first; never deploy on red.
+  bytes: 632
+  tokens_approx: 158
+  checksum: sha256:254025b0ce5a3eef
+  status: active
+- id: secrets-management
+  title: Secrets Management
+  path: rules/secrets-management.md
+  tier: 2
+  triggers:
+  - secret
+  - credentials
+  - api key
+  - vault
+  - env var
+  deps: []
+  summary: Secrets in a manager, never in code or logs; rotate; scope per service.
+  bytes: 631
+  tokens_approx: 157
+  checksum: sha256:f0bb5bd38e5427d9
+  status: active
+- id: security-baseline
+  title: Security Baseline
+  path: rules/security-baseline.md
+  tier: 1
+  triggers: []
+  deps: []
+  summary: Never log secrets; validate all input; least privilege by default.
+  bytes: 508
+  tokens_approx: 127
+  checksum: sha256:ea54ab953e5ddca0
+  status: active
+- id: service-catalog
+  title: Service Catalog
+  path: rules/service-catalog.md
+  tier: 3
+  triggers:
+  - service catalog
+  - service map
+  - ownership
+  deps: []
+  summary: 'Reference: each service, its owner, SLOs, and on-call.'
+  bytes: 582
+  tokens_approx: 145
+  checksum: sha256:6b18b95f6c2558e9
+  status: active
+- id: slo
+  title: Slo
+  path: rules/slo.md
+  tier: 2
+  triggers:
+  - slo
+  - sli
+  - error budget
+  - uptime
+  deps: []
+  summary: Define SLIs from the user's view; spend error budget deliberately.
+  bytes: 543
+  tokens_approx: 135
+  checksum: sha256:c4bae04f952ef48c
+  status: active
+- id: sql-optimization
+  title: Sql Optimization
+  path: rules/sql-optimization.md
+  tier: 2
+  triggers:
+  - slow query
+  - query plan
+  - sql performance
+  - explain
+  deps:
+  - database-indexing
+  summary: Read the plan; avoid N+1; select only needed columns; watch sequential
+    scans.
+  bytes: 677
+  tokens_approx: 169
+  checksum: sha256:de2febad2bda178e
+  status: active
+- id: style-guide-full
+  title: Style Guide Full
+  path: rules/style-guide-full.md
+  tier: 3
+  triggers:
+  - style guide
+  - naming conventions
+  deps: []
+  summary: 'Reference: the full language and naming style guide.'
+  bytes: 563
+  tokens_approx: 140
+  checksum: sha256:0bbdc1b5e521d633
+  status: active
+- id: surgical-changes
+  title: Surgical Changes
+  path: rules/surgical-changes.md
+  tier: 1
+  triggers: []
+  deps: []
+  summary: Every edited line traces to the request; don't refactor unrelated code.
+  bytes: 520
+  tokens_approx: 130
+  checksum: sha256:a6bef7b85af18cbf
+  status: active
+- id: test-required
+  title: Test Required
+  path: rules/test-required.md
+  tier: 1
+  triggers: []
+  deps: []
+  summary: Every behavioural change ships with a test that fails before and passes
+    after.
+  bytes: 532
+  tokens_approx: 133
+  checksum: sha256:08c1ee81ad9e9322
+  status: active
+- id: testing-strategy
+  title: Testing Strategy
+  path: rules/testing-strategy.md
+  tier: 2
+  triggers:
+  - test
+  - unit test
+  - integration test
+  - coverage
+  deps:
+  - test-required
+  summary: 'Pyramid: many unit, some integration, few e2e; test behaviour not implementation.'
+  bytes: 675
+  tokens_approx: 168
+  checksum: sha256:70d9b8b42153bcf5
+  status: active
+- id: webhooks
+  title: Webhooks
+  path: rules/webhooks.md
+  tier: 2
+  triggers:
+  - webhook
+  - callback url
+  - event delivery
+  deps:
+  - queue-processing
+  summary: Verify signatures, respond fast then process async, retry with backoff,
+    dedupe.
+  bytes: 636
+  tokens_approx: 159
+  checksum: sha256:a16f360b60af912c
+  status: active
+bundles:
+  deploy:
+  - safe-deploy
+  - docker
+  - ci-cd
+  - rollback
+  deploy-k8s:
+  - safe-deploy
+  - kubernetes
+  - ci-cd
+  - rollback
+  backend-api:
+  - api-design
+  - rest-conventions
+  - authentication
+  - authorization
+  data-layer:
+  - database-migrations
+  - sql-optimization
+  - database-indexing
+  - connection-pooling
+  security:
+  - secrets-management
+  - authentication
+  - authorization
+  - password-hashing
+  - input-validation
+  incident:
+  - incident-response
+  - rollback
+  - observability
+  - alerting
+  frontend:
+  - component-design
+  - frontend-state
+  - accessibility
+  - i18n
+  async-processing:
+  - queue-processing
+  - background-jobs
+  - webhooks
+  - cron-jobs
+  observability:
+  - logging
+  - monitoring
+  - observability
+  - alerting
+  review-ready:
+  - code-review
+  - testing-strategy
+  - git-workflow
+  api-evolution:
+  - api-design
+  - api-versioning
+  - rest-conventions
+  data-governance:
+  - data-retention
+  - backups
+  - secrets-management

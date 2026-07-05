@@ -1,0 +1,263 @@
+schema_version: 1
+generated_at: '2026-05-11T03:58:36+00:00'
+total_rules: 14
+tier_totals:
+  tier_1: 2
+  tier_2: 12
+  tier_3: 0
+token_totals:
+  tier_1: 707
+  tier_2: 4633
+  tier_3: 0
+rules:
+- id: agent-handoff
+  title: Agent handoff notes
+  path: rules/agent-handoff.md
+  tier: 2
+  triggers:
+  - handoff
+  - baton
+  - context transfer
+  - agent transition
+  - resume
+  deps: []
+  summary: Write a handoff note when transferring work. State, next action, blockers.
+  bytes: 1543
+  tokens_approx: 385
+  checksum: sha256:8d8d6295661d6211
+  status: active
+- id: branch-management
+  title: Branch management
+  path: rules/branch-management.md
+  tier: 1
+  triggers:
+  - git
+  - branch
+  - merge
+  - push
+  - main
+  - trunk
+  - rebase
+  deps: []
+  summary: Trunk-based development. Short-lived branches. Merge to main daily.
+  bytes: 1303
+  tokens_approx: 325
+  checksum: sha256:1ce17fd22ab2ee4e
+  status: active
+- id: dependency-audit
+  title: Dependency audit
+  path: rules/dependency-audit.md
+  tier: 2
+  triggers:
+  - dependency
+  - supply chain
+  - npm audit
+  - pip audit
+  - sbom
+  - cve
+  deps: []
+  summary: Scan for known CVEs before merging dependency bumps. Generate an SBOM.
+  bytes: 1465
+  tokens_approx: 366
+  checksum: sha256:b916a632e7e0217a
+  status: active
+- id: docker-control
+  title: Docker operations
+  path: rules/docker-control.md
+  tier: 2
+  triggers:
+  - docker
+  - container
+  - image
+  - dockerfile
+  deps: []
+  summary: Pin tags, build reproducibly, scan for known CVEs before shipping.
+  bytes: 1270
+  tokens_approx: 317
+  checksum: sha256:65b2d45b7ee763b3
+  status: active
+- id: hypothesis-tracking
+  title: Track hypotheses during debugging
+  path: rules/hypothesis-tracking.md
+  tier: 2
+  triggers:
+  - hypothesis
+  - theory
+  - debug
+  - intermittent
+  - troubleshoot
+  deps: []
+  summary: Write hypotheses down with what would falsify each, before guessing.
+  bytes: 1574
+  tokens_approx: 393
+  checksum: sha256:151a0950b06ee876
+  status: active
+- id: incremental-edits
+  title: Incremental refactors land in small commits
+  path: rules/incremental-edits.md
+  tier: 2
+  triggers:
+  - incremental
+  - small commits
+  - atomic change
+  - mechanical refactor
+  deps: []
+  summary: Split a big refactor into reviewable commits. Each compiles. Each tests
+    pass.
+  bytes: 1604
+  tokens_approx: 401
+  checksum: sha256:e9bee6ab4a70cdaa
+  status: active
+- id: repro-first
+  title: Reproduce before you fix
+  path: rules/repro-first.md
+  tier: 2
+  triggers:
+  - bug
+  - repro
+  - reproduce
+  - intermittent
+  - flake
+  deps: []
+  summary: Get a deterministic reproduction before changing any code.
+  bytes: 1504
+  tokens_approx: 376
+  checksum: sha256:1add0da104ca42f6
+  status: active
+- id: safe-deploy
+  title: Safe deployment protocol
+  path: rules/safe-deploy.md
+  tier: 2
+  triggers:
+  - deploy
+  - ship
+  - production
+  - rollout
+  - canary
+  - staging
+  deps:
+  - docker-control
+  - branch-management
+  summary: Canary first, watch p95, automate rollback on signal.
+  bytes: 1237
+  tokens_approx: 309
+  checksum: sha256:c03c8afbb246e9fd
+  status: active
+- id: scope-freeze
+  title: Scope freeze for surgical refactors
+  path: rules/scope-freeze.md
+  tier: 2
+  triggers:
+  - refactor
+  - scope creep
+  - surgical
+  - frozen
+  - edit set
+  deps: []
+  summary: Declare the file set before refactoring. Touch nothing else.
+  bytes: 1644
+  tokens_approx: 411
+  checksum: sha256:e85dc73eda98730f
+  status: active
+- id: secrets-scan
+  title: Secrets scanning and remediation
+  path: rules/secrets-scan.md
+  tier: 2
+  triggers:
+  - secret
+  - credential
+  - api key
+  - leak
+  - gitleaks
+  - trufflehog
+  deps: []
+  summary: A leaked secret is leaked forever. Rotate first, sanitise history second.
+  bytes: 1578
+  tokens_approx: 394
+  checksum: sha256:b97a7e2daeaa876e
+  status: active
+- id: security-review
+  title: Security review checklist
+  path: rules/security-review.md
+  tier: 2
+  triggers:
+  - security review
+  - vulnerability
+  - threat model
+  - authz
+  - authn
+  - owasp
+  deps: []
+  summary: A mental OWASP pass before opening sensitive PRs. Escalate the unfamiliar.
+  bytes: 1716
+  tokens_approx: 429
+  checksum: sha256:65645ed12c5aae00
+  status: active
+- id: test-coverage
+  title: Test coverage before refactoring
+  path: rules/test-coverage.md
+  tier: 2
+  triggers:
+  - coverage
+  - untested
+  - regression test
+  - characterisation test
+  deps: []
+  summary: Write a test that pins existing behaviour before changing how it works.
+  bytes: 1701
+  tokens_approx: 425
+  checksum: sha256:9e251b79f5131a3b
+  status: active
+- id: three-strikes
+  title: Three strikes, build a tool
+  path: rules/three-strikes.md
+  tier: 2
+  triggers:
+  - three strikes
+  - repeated failure
+  - recurring bug
+  - build a tool
+  - automation
+  deps: []
+  summary: Hit the same class of problem 3x? Stop fixing instances; build the tool.
+  bytes: 1711
+  tokens_approx: 427
+  checksum: sha256:337446fe465fdb82
+  status: active
+- id: workspace-isolation
+  title: Workspace isolation for parallel agents
+  path: rules/workspace-isolation.md
+  tier: 1
+  triggers:
+  - worktree
+  - workspace
+  - isolated
+  - parallel agents
+  - concurrent
+  deps: []
+  summary: Each agent gets its own git worktree. Never share a checkout.
+  bytes: 1531
+  tokens_approx: 382
+  checksum: sha256:2f37a3c2decf7840
+  status: active
+bundles:
+  deploy:
+  - safe-deploy
+  - docker-control
+  - branch-management
+  multi-agent:
+  - workspace-isolation
+  - agent-handoff
+  - branch-management
+  security-review:
+  - security-review
+  - dependency-audit
+  - secrets-scan
+  refactor:
+  - scope-freeze
+  - test-coverage
+  - incremental-edits
+  debug:
+  - repro-first
+  - hypothesis-tracking
+  - three-strikes

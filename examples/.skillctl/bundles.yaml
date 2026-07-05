@@ -1,0 +1,27 @@
+# Bundles group related rules and resolve their transitive deps.
+# `skillctl bundle <name>` returns the closure as a single markdown brief.
+
+deploy:
+  - safe-deploy
+  - docker-control
+  - branch-management
+
+multi-agent:
+  - workspace-isolation
+  - agent-handoff
+  - branch-management
+
+security-review:
+  - security-review
+  - dependency-audit
+  - secrets-scan
+
+refactor:
+  - scope-freeze
+  - test-coverage
+  - incremental-edits
+
+debug:
+  - repro-first
+  - hypothesis-tracking
+  - three-strikes
