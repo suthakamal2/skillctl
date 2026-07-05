@@ -1,0 +1,71 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "skillctl"
+version = "0.1.0"
+description = "Dependency resolver, bundle manager, and deterministic trigger engine for Agent Skills, Cursor Rules, and CLAUDE.md."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Sutha Kamal" }]
+keywords = [
+    "claude-code",
+    "claude",
+    "cursor",
+    "codex",
+    "agent-skills",
+    "skills",
+    "rules",
+    "prompt-engineering",
+    "agents",
+    "llm",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Code Generators",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+skillctl = "skillctl._cli:main"
+
+[project.urls]
+Homepage = "https://github.com/suthakamal2/skillctl"
+Repository = "https://github.com/suthakamal2/skillctl"
+Issues = "https://github.com/suthakamal2/skillctl/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillctl"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"

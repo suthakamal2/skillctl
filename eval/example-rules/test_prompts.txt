@@ -1,0 +1,10 @@
+we need to deploy v2 to staging tonight
+the production database query is slow, what indexes should we add
+set up authentication and authorization for the new API
+we have a sev1 outage, walk me through incident response
+add pagination and rate limiting to this endpoint
+make this React component accessible
+process these events asynchronously off a queue
+rotate our API keys and audit dependencies for CVEs
+write a database migration that adds a nullable column
+review this pull request before we merge

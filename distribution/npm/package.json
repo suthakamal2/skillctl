@@ -1,0 +1,16 @@
+{
+  "name": "skillctl",
+  "version": "0.1.0",
+  "description": "Dependency resolver and bundle manager for Agent Skills",
+  "bin": {
+    "skillctl": "./bin/skillctl.js"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suthakamal2/skillctl.git"
+  },
+  "author": "Sutha Kamal",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -1,0 +1,7 @@
+# MIT-licensed
+# Exclude tests, sources, etc.
+tests/
+src/
+docs/
+.*
+!.npmignore
