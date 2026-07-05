@@ -73,7 +73,10 @@ def test_wheel_contains_console_script_entry_point(tmp_path: Path) -> None:
 
 def test_pyproject_version_matches_init() -> None:
     """The version declared in pyproject.toml must match skillctl.__version__."""
-    import tomllib
+    try:
+        import tomllib  # Python 3.11+
+    except ModuleNotFoundError:  # Python 3.10
+        import tomli as tomllib
     pyproject = tomllib.loads((PACKAGE_ROOT / "pyproject.toml").read_text())
     declared = pyproject["project"]["version"]
 
