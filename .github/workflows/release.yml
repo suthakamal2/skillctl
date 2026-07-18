@@ -55,6 +55,11 @@ jobs:
   publish-pypi:
     name: publish to PyPI
     needs: build
+    # Only attempt a PyPI publish once trusted publishing is configured on PyPI
+    # for this repo (set repo variable PYPI_TRUSTED_PUBLISHER=true then). Until
+    # then the job is skipped rather than failing the whole release — cutting a
+    # provenance tag for a hand-published version must not require PyPI OIDC.
+    if: ${{ vars.PYPI_TRUSTED_PUBLISHER == 'true' }}
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
@@ -70,10 +75,16 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/
+          # Idempotent: re-tagging an already-published version skips the upload
+          # instead of hard-failing the run.
+          skip-existing: true
 
   github-release:
     name: create GitHub Release
-    needs: [build, publish-pypi]
+    # Depends on build only, so the GitHub Release is always cut from the built
+    # artifact even when the PyPI publish is skipped (unconfigured) or already
+    # published. PyPI publishing is an independent, gated job above.
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write
